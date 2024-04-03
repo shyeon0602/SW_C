@@ -18,8 +18,5 @@
     <ClCompile Include="20240403.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="calculator.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>
