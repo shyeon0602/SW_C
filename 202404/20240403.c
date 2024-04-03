@@ -20,6 +20,8 @@ void BackjunPractice1() {
 
 void BackjunPractice2() {
 	/*
+	#2884 알람시계
+
 	첫째 줄에 두 정수 H와 M이 주어진다. (0 ≤ H ≤ 23, 0 ≤ M ≤ 59) 그리고 이것은 현재 상근이가 설정한 알람 시간 H시 M분을 의미한다.
 
 	입력 시간은 24시간 표현을 사용한다. 24시간 표현에서 하루의 시작은 0:0(자정)이고, 끝은 23:59(다음날 자정 1분 전)이다. 시간을 나타낼 때, 불필요한 0은 사용하지 않는다.
@@ -61,7 +63,34 @@ void BackjunPractice2() {
 	}
 }
 
+void BackjunPractice3() {
+	/*
+	#2525 오븐시계
+
+	오븐구이 끝나는 시간 분 단위 자동계산
+	오리구이 시작시간, 오븐구이 필요시간, 요리 끝나는 시간
+	*/
+
+	int A, B, C;
+	scanf_s("%d %d\n%d", &A, &B, &C);
+
+	// 시작시간 + 필요시간 = 끝나는 시간
+	/*
+	조건문 제약조건
+		B + C를 했을 때 60 이상이면, A + 1, B - 60
+		B + C를 했을 때 120 이상이면, A + 2, B - ( 60 * 2 )
+		B + C를 했을 때 180 이상이면, A + 3, B - ( 60 * 3 )
+		...
+		B + C를 했을 때 960 이상이면, A + 3, B - ( 60 * 16 )
+
+		-> for문 사용필요?
+
+	*/
+}
+
 void practice() {
+	// 출력문(printf), 입력문(scanf)
+
 	// 연습문제
 	// 두개의 숫자를 입력받고, 나눗셈 결과를 출력하라, 2개 숫자는 정수형, 결과는 소수점까지 나오게끔 하라
 	int num1, num2;
@@ -72,6 +101,75 @@ void practice() {
 	double remainder = num1 % num2;
 	double quotient = (double)num1 / num2;
 	printf("나머지: %lf\n몫: %lf", remainder, quotient);
+}
+
+void practice2() {
+	/*
+	1. 백준 1330번(두 수 비교하기) 문제 풀기
+
+	2. 자판기 프로그램을 작성하시오.
+	- 사용자에게 동전을 입력받은 뒤, 음료 선택지 제시
+	  - 콜라(1000원)
+	  - 사이다(1100원)
+	  - 포카리 스웨트(1800원)
+	  - 레쓰비(800원)
+	  - 카페라떼(2500원)
+	- 금액이 충분하다면, 음료가 제공되었음을 출력으로 알린 뒤 거스름돈 출력하기. 그리고 실행 종료.
+	  금액이 부족하다면, 금액이 부족함을 출력으로 알린 뒤 실행 종료
+	*/
+
+	// 1번 두 수 비교하기
+
+	// 2번 자판기
+	int coin;
+	int drink[][20] = {"레쓰비", "콜라", "사이다", "포카리 스웨트", "카페라떼"};
+	int choice;
+	printf("- 콜라(1000원)\n- 사이다(1100원)\n- 포카리 스웨트(1800원)\n- 레쓰비(800원)\n- 카페라떼(2500원)\n");
+	printf("\n동전을 넣어주세요: ");
+	scanf_s("%d", &coin);
+	
+	if (coin >= 800 && coin < 1000)
+		printf("- 1. 레쓰비(800원)");
+	else if (coin >= 1000 && coin < 1100)
+		printf("- 1. 레쓰비(800원)\n- 2. 콜라(1000원)");
+	else if(coin >= 1100 && coin < 1800)
+		printf("- 1. 레쓰비(800원)\n- 2. 콜라(1000원)\n- 3. 사이다(1100원)");
+	else if(coin >= 1800 && coin < 2500)
+		printf("- 1. 레쓰비(800원)\n- 2. 콜라(1000원)\n- 3. 사이다(1100원)\n- 4. 포카리 스웨트(1800원)");
+	else if(coin >= 2500)
+		printf("- 1. 레쓰비(800원)\n- 2. 콜라(1000원)\n- 3. 사이다(1100원)\n- 4. 포카리 스웨트(1800원)\n- 5. 카페라떼(2500원)");
+
+	printf("\n");
+	printf("\n");
+	printf("음료 번호를 입력하세요: ");
+	scanf_s("%d", &choice);
+
+	switch (choice)
+	{
+	case 1:
+		printf("레쓰비, 거스름돈: %d", coin - 800);
+		break;
+	case 2:
+		printf("콜라, 거스름돈: %d", coin - 1000);
+		break;
+	case 3:
+		printf("사이다, 거스름돈: % d", coin - 1100);
+		break;
+	case 4:
+		printf("포카리 스웨트, 거스름돈: %d", coin - 1800);
+		break;
+	case 5:
+		printf("카페라떼, 거스름돈: %d", coin - 2500);
+		break;
+	}
+
+
+
+	
+
+
+
+
 }
 
 void calculator() {
@@ -143,9 +241,27 @@ void BoolType() {
 	printf("%c", difference);
 }
 
-void main() {
-	// 출력문(printf), 입력문(scanf)
-
+void If() {
+	// 조건문: 조건식의 결과에 따라 수행할 명령문을 달리할 때 사용
 	
+	/*
+	예제: 시험점수를 입력받고, pass/fail 여부 출력
+		(60점 이상이면 pass)
+	*/
+	int score;
+	scanf_s("%d", &score);
+
+	/*score >= 60 ? printf("PASS") : printf("FAIL");*/
+
+	if (score >= 60)
+		printf("PASS");
+	else
+		printf("FAIL");
+	
+}
+
+void main() {
+		
+	practice2();
 
 }
