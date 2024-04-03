@@ -41,25 +41,24 @@ void BackjunPractice2() {
 		M == 0 : 시간은 한시간 줄고 15분으로 지정
 
 		0시 45분 : 0시 0분으로 하드코딩?
-		
 	*/
-	if (M < 45)
-		printf("%d %d", H - 1, M + 15);
-	else if (M > 45)
-		printf("%d %d", H, M - 45);
-	else if (M == 0)
-		printf("%d %d", H - 1, 15);
-	else if (H == 0) {
-		if (M < 45)
-			printf("%d %d", 23, M + 15);
-		else if (M > 45)
-			printf("%d %d", H, M - 45);
-		else
-			printf("%d %d", H, 0);
-	}
-	else
-		printf("%d %d", H, 0);
 	
+	// 분을 45분 기준으로 45보다 적을 때는 시간을 한시간 빼고 분에서 60을 더하기
+	
+	if (H == 0) {
+		if (M < 45) {
+			printf("%d %d", 23, M - 45 + 60);
+		}
+		else if (M >= 45) {
+			printf("%d %d", 0, M - 45);
+		}
+	}
+	else {
+		if (M < 45)
+			printf("%d %d", H - 1, M - 45 + 60);
+		else if (M >= 45)
+			printf("%d %d", H, M - 45);
+	}
 }
 
 void practice() {
@@ -131,7 +130,14 @@ void BoolType() {
 
 	// 연습문제
 	// 2개의 숫자를 입력받고 2개의 값을 비교하여 결과를 출력, 같은지 다른지 결과만 출력하면 됨
+
+	// 1) bool type 변수로 참/거짓 여부 판별 -> 이에 따라 결과출력
 	int num1, num2;
+	/*
+	bool tf = (num1 == num2);
+	(tf == true) ? printf("2개 숫자 같습니다.") : printf("2개 숫자 다릅니다.");
+	*/
+
 	scanf_s("%d %d", &num1, &num2);
 	char difference = (num1 != num2) ? 'F' : 'T';
 	printf("%c", difference);
@@ -140,6 +146,6 @@ void BoolType() {
 void main() {
 	// 출력문(printf), 입력문(scanf)
 
-	BackjunPractice2();
+	
 
 }
