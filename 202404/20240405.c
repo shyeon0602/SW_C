@@ -26,9 +26,16 @@ void BackjunPractice() {
 		-> for문 사용필요?
 
 		23시일 때, 시간이 추가될 경우 0시부터 다시 입력되도록 제약
+
+		시간을 분으로 변환해서 계산
 	*/
+	int total_minutes = A * 60 + B + C;
+	int end_hours = (total_minutes / 60) % 24;
+	int end_minutes = total_minutes % 60;
 
-
+	//if (end_hours >= 24)
+	//	end_hours -= 24;
+	printf("%d %d", end_hours, end_minutes);
 }
 
 void conditionalStatement() {
@@ -137,7 +144,51 @@ void practice() {
 
 }
 
+void BackjunPractice2() {
+	/*
+	#2480 주사위 세개
+	1에서부터 6까지의 눈을 가진 3개의 주사위를 던져서 다음과 같은 규칙에 따라 상금을 받는 게임이 있다.
+
+	같은 눈이 3개가 나오면 10,000원+(같은 눈)×1,000원의 상금을 받게 된다.
+	같은 눈이 2개만 나오는 경우에는 1,000원+(같은 눈)×100원의 상금을 받게 된다.
+	모두 다른 눈이 나오는 경우에는 (그 중 가장 큰 눈)×100원의 상금을 받게 된다.
+	예를 들어, 3개의 눈 3, 3, 6이 주어지면 상금은 1,000+3×100으로 계산되어 1,300원을 받게 된다. 또 3개의 눈이 2, 2, 2로 주어지면 10,000+2×1,000 으로 계산되어 12,000원을 받게 된다. 3개의 눈이 6, 2, 5로 주어지면 그중 가장 큰 값이 6이므로 6×100으로 계산되어 600원을 상금으로 받게 된다.
+
+	3개 주사위의 나온 눈이 주어질 때, 상금을 계산하는 프로그램을 작성 하시오.
+
+	입력
+	첫째 줄에 3개의 눈이 빈칸을 사이에 두고 각각 주어진다.
+
+	출력
+	첫째 줄에 게임의 상금을 출력 한다.
+	*/
+
+	int dice1, dice2, dice3;
+	scanf_s("%d %d %d", &dice1, &dice2, &dice3);
+
+	int money;
+	if ((dice1 == dice2) && (dice2 == dice3)) {
+		money = 10000 + dice1 * 1000;
+		printf("%d", money);
+	}
+	else if ((dice1 == dice2) || (dice1 == dice3) || (dice2 == dice3)) {
+		int same = 0;
+		same = ((dice1 == dice2) || (dice1 == dice3) && (dice2 != dice3)) ? dice1 : dice2 ;
+		money = 1000 + same * 100;
+		printf("%d", money);
+	}
+	else {
+		int max = 0;
+		max = ((dice1 > dice2) && (dice1 > dice3)) ? dice1 : ((dice2 > dice1) && (dice2 > dice3)) ? dice2 : dice3;
+		money = 1000 + max * 100;
+		printf("%d", money);
+	}
+
+}
+
 void main() {
-	conditionalStatement();
+	//BackjunPractice();
+	//conditionalStatement();
 	//practice();
+	BackjunPractice2();
 }
