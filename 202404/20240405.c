@@ -47,7 +47,7 @@ void conditionalStatement() {
 	커피: 2500원, 빵: 1000원
 	*/
 	int coffee;
-	printf("커피 구매여부 입력( 1/0 ) : ");
+	printf("커피 구매여부 입력(1/0) : ");
 	scanf_s("%d", &coffee);
 
 	if (coffee == 1 && money >= 2500) {
@@ -61,7 +61,11 @@ void conditionalStatement() {
 	char bread_input;
 	
 	printf("\n빵 구매여부 입력(T/F) : ");
-	scanf_s("%c", &bread_input);
+	/*
+	scanf_s() 함수는 사용자가 엔터 키를 입력할 때마다 개행 문자가 버퍼에 남게 되는데, 이는 다음의 scanf_s() 호출에서 문제를 일으킵니다.
+	개행 문자 제거를 위해 앞에 공백 추가 필요
+	*/
+	scanf_s(" %c", &bread_input);
 
 	if (bread_input == 'T' || bread_input == 't')
 		bread = 1;
@@ -73,8 +77,8 @@ void conditionalStatement() {
 	}
 
 	if (bread == 1) {
-		bread -= 1000;
-		printf("빵 구매 완료, 거스름돈: %d", bread);
+		money -= 1000;
+		printf("빵 구매 완료, 거스름돈: %d", money);
 	}
 	else
 		printf("돈이 부족합니다.");
@@ -134,6 +138,6 @@ void practice() {
 }
 
 void main() {
-	//conditionalStatement();
-	practice();
+	conditionalStatement();
+	//practice();
 }
