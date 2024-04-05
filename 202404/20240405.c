@@ -171,16 +171,16 @@ void BackjunPractice2() {
 		money = 10000 + dice1 * 1000;
 		printf("%d", money);
 	}
-	else if ((dice1 == dice2) || (dice1 == dice3) || (dice2 == dice3)) {
-		int same = 0;
-		same = ((dice1 == dice2) || (dice1 == dice3) && (dice2 != dice3)) ? dice1 : dice2 ;
-		money = 1000 + same * 100;
+	else if((dice1 != dice2) && (dice1 != dice3) && (dice2 != dice3)) {
+		int max = 0;
+		max = ((dice1 > dice2) && (dice1 > dice3)) ? dice1 : ((dice2 > dice1) && (dice2 > dice3)) ? dice2 : dice3;
+		money = max * 100;
 		printf("%d", money);
 	}
 	else {
-		int max = 0;
-		max = ((dice1 > dice2) && (dice1 > dice3)) ? dice1 : ((dice2 > dice1) && (dice2 > dice3)) ? dice2 : dice3;
-		money = 1000 + max * 100;
+		int same = 0;
+		same = ((dice1 == dice2) || (dice1 == dice3) && (dice2 != dice3)) ? dice1 : dice2 ;
+		money = 1000 + same * 100;
 		printf("%d", money);
 	}
 
