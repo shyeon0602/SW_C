@@ -44,6 +44,41 @@ void BackjunPractice2() {
 
 }
 
+void BackjunPractice3() {
+	/*
+	#25304 영수증
+	입력
+	첫째 줄에는 영수증에 적힌 총 금액 
+	$X$가 주어진다.
+
+	둘째 줄에는 영수증에 적힌 구매한 물건의 종류의 수 
+	$N$이 주어진다.
+
+	이후 
+	$N$개의 줄에는 각 물건의 가격 
+	$a$와 개수 
+	$b$가 공백을 사이에 두고 주어진다.
+
+	출력
+	구매한 물건의 가격과 개수로 계산한 총 금액이 영수증에 적힌 총 금액과 일치하면 Yes를 출력한다. 
+	일치하지 않는다면 No를 출력한다.
+	*/
+
+	long X;
+	int N, a, b;
+	scanf("%d\n%d", &X, &N);
+
+	int oneOfPrice;
+	for (int i = 0; i < N; i++)
+	{
+		scanf("%d %d", &a, &b);
+		oneOfPrice = a * b;
+		
+		//a* b == X ? printf("Yes") : printf("No");
+	}
+
+}
+
 void review() {
 	// ASCII code: 인간과 컴퓨터 소통을 위하여 문자 정보를 특정 숫자와 일대일 대응시킨 약속
 
@@ -199,6 +234,43 @@ int Loop() {
 		num++;
 	}
 
+	// 알파벳 A-Z 출력
+	char alpha = 'A';
+	while (alpha <= 'Z')
+	{
+		printf("%c", alpha);
+		alpha++;
+	}
+
+}
+
+void LoopPractice1() {
+	// 1. n을 입력받고 1부터 n까지 하여 짝수들의 총합을 출력하는 프로그램 만들기
+	int n;
+	printf("몇번째 숫자까지 합할지 입력하세요: ");
+	scanf("%d", &n);
+
+	int sum = 0;
+	for (int i = 0; i < n; i++) sum += i;
+	printf("%d\n", sum);
+
+}
+
+void LoopPractice2() {
+	// 2. n을 입력받고, n개의 숫자를 입력받으시오. n개의 숫자들 중 가장 큰 값을 출력하는 프로그램을 만드시오.
+	// 배열을 사용하지 말고 해보기
+	int n, max, num;
+	printf("비교하려는 숫자의 개수를 입력하세요: ");
+	scanf(" %d", &n);
+
+	printf("비교하려는 숫자를 입력하세요: ");
+	max = 0;
+	for (int i = 0; i < n; i++)
+	{
+		scanf(" %d", &num);
+		if (max < num) max = num;
+	}
+	printf("%d", max);
 }
 
 int main() {
@@ -207,7 +279,10 @@ int main() {
 	//SwitchPractice2();
 	//SwitchPractice3();
 	//Loop();
+	LoopPractice1();
+	LoopPractice2();
 
 	//BackjunPractice1();
 	//BackjunPractice2();
+	//BackjunPractice3();
 }
