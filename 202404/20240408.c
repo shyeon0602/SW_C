@@ -66,17 +66,41 @@ void BackjunPractice3() {
 
 	long X;
 	int N, a, b;
+	int sum = 0;
 	scanf("%d\n%d", &X, &N);
 
+	int totalPrice[10];
 	int oneOfPrice;
 	for (int i = 0; i < N; i++)
 	{
-		scanf("%d %d", &a, &b);
+		scanf(" %d %d", &a, &b);
 		oneOfPrice = a * b;
-		
-		//a* b == X ? printf("Yes") : printf("No");
+		totalPrice[i] = oneOfPrice;
+		sum += totalPrice[i];
 	}
+	sum == X ? printf("Yes") : printf("No");
+	
+}
 
+void BackjunPractice4() {
+	/*
+	#10872 N!
+	문제
+	0보다 크거나 같은 정수 N이 주어진다. 이때, N!을 출력하는 프로그램을 작성하시오.
+
+	입력
+	첫째 줄에 정수 N(0 ≤ N ≤ 12)이 주어진다.
+
+	출력
+	첫째 줄에 N!을 출력한다.
+	*/
+	int N, result;
+	scanf("%d", &N);
+
+	result = 1;
+	for (int i = 1; i <= N; i++)
+		result *= i;
+	printf("%d", result);
 }
 
 void review() {
@@ -251,7 +275,9 @@ void LoopPractice1() {
 	scanf("%d", &n);
 
 	int sum = 0;
-	for (int i = 0; i < n; i++) sum += i;
+	for (int i = 1; i <= n; i++) {
+		if(i % 2 == 0) sum += i;
+	}
 	printf("%d\n", sum);
 
 }
@@ -275,14 +301,17 @@ void LoopPractice2() {
 
 int main() {
 	//review();
+	
 	//SwitchPractice1();
 	//SwitchPractice2();
 	//SwitchPractice3();
+	
 	//Loop();
-	LoopPractice1();
-	LoopPractice2();
+	//LoopPractice1();
+	//LoopPractice2();
 
 	//BackjunPractice1();
 	//BackjunPractice2();
 	//BackjunPractice3();
+	//BackjunPractice4();
 }
