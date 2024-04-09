@@ -1,5 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
+#include <stdbool.h>
 
 void BackjunPractice1() {
 	/*
@@ -98,6 +99,34 @@ void BackjunPractice4() {
 
 }
 
+void BackjunPractice5() {
+	/*
+	#10952 A+B - 5
+	두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오.
+
+	입력
+	입력은 여러 개의 테스트 케이스로 이루어져 있다.
+
+	각 테스트 케이스는 한 줄로 이루어져 있으며, 각 줄에 A와 B가 주어진다. (0 < A, B < 10)
+
+	입력의 마지막에는 0 두 개가 들어온다.
+
+	출력
+	각 테스트 케이스마다 A+B를 출력한다.
+	*/
+	int A, B;
+
+	do
+	{
+		scanf("%d %d", &A, &B);
+
+		if (A == 0 && B == 0) break;
+		printf("%d\n", A + B);
+
+	} while (A != 0 && B != 0);
+	
+}
+
 int review() {
 	// 예제: 게임 캐릭터의 동작을 보여주는 프로그램 만들기
 	// 숫자 n을 입력하고 n만큼의 동작을 보여주는 식으로 진행
@@ -170,14 +199,132 @@ int loopPractice1() {
 	}
 }
 
+int doWhile() {
+	//for (int i = 0; i != 0; i++)
+	//{
+	//	// i의 시작값이 0이기 때문에 조건식에 부합하지 않음 -> 출력값이 반환되지 않음
+	//	printf("반복문이 실행됩니다.");
+	//}
+
+	// do-while문: 반드시 한번은 실행이 되는 반복문
+	//	우선은 실행한 후 조건을 따지면서 반복을 할지 결정
+
+    //예제: 1-10 출력
+	int i = 1;
+	do
+	{
+		printf("%d\n", i);
+		i++;
+	} while (i <= 10);
+
+	printf("\n");
+
+	int tf = 0;
+	do
+	{
+		printf("do-while문이 실행됨");
+	} while (tf != 0);
+
+}
+
+int loopPractice2() {
+	/*
+	예제: 자판기 프로그램을 작성하시오
+		사용자에게 동전을 입력받은 뒤, 음료 선택지 제시
+		- 1. 콜라(1000원)
+		- 2. 사이다(1100원)
+		- 3. 포카리 스웨트(1800원)
+		- 4. 레쓰비(800원)
+		- 5. 카페라떼(2500원)
+		- 0. 실행 종료
+		
+		사용자가 0을 입력하거나 더이상 음료를 살 수 없을 때 거스름돈을 제공하면서 실행 종료
+	*/
+	int coin, drink;
+	printf("동전을 넣으세요: ");
+	scanf("%d", &coin);
+
+	printf("- 1. 콜라(1000원)\n- 2. 사이다(1100원)\n- 3. 포카리 스웨트(1800원)\n- 4. 레쓰비(800원)\n- 5. 카페라떼(2500원)\n- 0. 실행 종료\n");
+	while (coin != 0)
+	{
+		printf("\n");
+		printf("음료를 선택하세요(번호 입력): ");
+		scanf(" %d", &drink);
+
+		if (coin >= 0 && drink >= 0 && drink <= 5) {
+			if (drink == 1) {
+				coin -= 1000;
+				if (coin <= 0) {
+					printf("잔액이 부족합니다");
+				}
+				else
+					printf("콜라, 거스름돈: %d\n", coin);
+			}
+			if (drink == 2) {
+				coin -= 1100;
+				if (coin <= 0) {
+					printf("잔액이 부족합니다");
+				}
+				else
+					printf("사이다, 거스름돈: %d\n", coin);
+			}
+			if (drink == 3) {
+				coin -= 1800;
+				if (coin <= 0) {
+					printf("잔액이 부족합니다");
+				}
+				else
+					printf("포카리 스웨트, 거스름돈: %d\n", coin);
+			}
+			if (drink == 4) {
+				coin -= 800;
+				if (coin <= 0) {
+					printf("잔액이 부족합니다");
+				}
+				else
+					printf("레쓰비, 거스름돈: %d\n", coin);
+			}
+			if (drink == 5) {
+				coin -= 2500;
+				if (coin <= 0) {
+					printf("잔액이 부족합니다");
+				}
+				else
+					printf("카페라떼, 거스름돈: %d\n", coin);
+			}
+			else if (drink == 0) {
+				printf("실행 종료\n이용해주셔서 감사합니다:)");
+				break;
+			}
+
+		}
+		else
+			printf("음료를 다시 선택하세요.\n");
+
+		if (coin <= 0) {
+			printf("\n실행 종료");
+			break;
+		}
+		
+
+
+	}
+
+}
+
 int main() {
 	//BackjunPractice1();
 	//BackjunPractice2();
 	//BackjunPractice3();
 	//BackjunPractice4();
+	//BackjunPractice5();
 
 	//review();
 
 	//Loop();
 	//loopPractice1();
+
+	//doWhile();
+
+	loopPractice2();
 }
