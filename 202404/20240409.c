@@ -260,7 +260,7 @@ int loopPractice2() {
 				else
 					printf("콜라, 거스름돈: %d\n", coin);
 			}
-			if (drink == 2) {
+			else if (drink == 2) {
 				coin -= 1100;
 				if (coin <= 0) {
 					printf("잔액이 부족합니다");
@@ -268,7 +268,7 @@ int loopPractice2() {
 				else
 					printf("사이다, 거스름돈: %d\n", coin);
 			}
-			if (drink == 3) {
+			else if (drink == 3) {
 				coin -= 1800;
 				if (coin <= 0) {
 					printf("잔액이 부족합니다");
@@ -276,7 +276,7 @@ int loopPractice2() {
 				else
 					printf("포카리 스웨트, 거스름돈: %d\n", coin);
 			}
-			if (drink == 4) {
+			else if (drink == 4) {
 				coin -= 800;
 				if (coin <= 0) {
 					printf("잔액이 부족합니다");
@@ -284,7 +284,7 @@ int loopPractice2() {
 				else
 					printf("레쓰비, 거스름돈: %d\n", coin);
 			}
-			if (drink == 5) {
+			else if (drink == 5) {
 				coin -= 2500;
 				if (coin <= 0) {
 					printf("잔액이 부족합니다");
@@ -306,7 +306,6 @@ int loopPractice2() {
 			break;
 		}
 		
-
 
 	}
 
