@@ -109,7 +109,7 @@ void review() {
 	// 예제: 영문자를 입력받고, 대소문자 반전하여 출력하기
 	char alphabet = 0;
 	printf("영문자를 입력하세요: ");
-	scanf_s("%c", &alphabet);
+	scanf("%c", &alphabet);
 
 	int reverse;
 	// 대문자('A'==65)를 입력받는 경우 -> 소문자 반전
