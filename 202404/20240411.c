@@ -191,6 +191,10 @@ int arrayPractice1() {
 		{
 			if (score[j] >= 40) {
 				tf = true;
+				if (avg < 60) {
+					printf("불합격");
+					return 0;
+				}
 			}
 			else {
 				printf("불합격");
@@ -200,7 +204,7 @@ int arrayPractice1() {
 		if (tf == true) printf("합격");
 		break;
 	}
-	if (avg >= 60) printf("합격");
+	if (avg >= 60 &&  tf != true) printf("불합격");
 	
 }
 
