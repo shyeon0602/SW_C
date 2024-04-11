@@ -120,11 +120,16 @@ void BackjoonPractice2() {
 	int n, x;
 	scanf("%d %d", &n, &x);
 
-	int a[10000];
+	int a[10000] = { 0 };
+	int b[sizeof(a)] = { 0 };
 	for (int i = 0; i < n; i++)
 	{
 		scanf("%d", &a[i]);
-		printf("");
+		if (a[i] < x) b[i] = a[i];
+	}
+	for (int j = 0; j < n; j++)
+	{
+		if(b[j] != 0) printf("%d ", b[j]);
 	}
 
 }
@@ -177,24 +182,20 @@ int arrayPractice1() {
 	printf("점수를 입력하세요(1~5과목 입력): ");
 
 	int sum = 0;
-	int avg = sum / 5;
-	bool tf;
+	bool tf = 0;
 
-	while (avg < 60)
+	for (int i = 0; i < 5; i++)
 	{
-		for (int i = 0; i < 5; i++)
-		{
-			scanf("%d", &score[i]);
-			sum += score[i];
-		}
+		scanf("%d", &score[i]);
+		sum += score[i];
+	}
+	int avg = sum / 5;
+	while (avg >= 60)
+	{
 		for (int j = 0; j < 5; j++)
 		{
 			if (score[j] >= 40) {
 				tf = true;
-				if (avg < 60) {
-					printf("불합격");
-					return 0;
-				}
 			}
 			else {
 				printf("불합격");
@@ -202,9 +203,10 @@ int arrayPractice1() {
 			}
 		}
 		if (tf == true) printf("합격");
-		break;
+		return 0;
 	}
-	if (avg >= 60 &&  tf != true) printf("불합격");
+	if ((avg >= 60 && tf != true) || avg < 60) printf("불합격");
+	else printf("합격");
 	
 }
 
