@@ -20,7 +20,7 @@ int loopPractice2_1() {
 
 	if (coin < 800)
 	{
-		printf("잔액이 부족합니다. 실행을 종료합니다.");
+		printf("동전이 부족합니다. 실행을 종료합니다.");
 		return 0;
 	}
 
@@ -48,11 +48,12 @@ int loopPractice2_1() {
 		if (coin >= 0 && drink > 0 && drink <= 5) {
 			for (int i = 1; i <= 5; i++)
 			{
-				if (drink == i) {
+				if (coin < 0) break;
+				else if (drink == i) {
 					{
-						coin -= list[i-1].money;
-						if (coin <= 0) printf("잔액이 부족합니다.");
-						else printf("%s, 거스름돈: %d\n", list[i-1].name, coin);
+						coin -= list[i - 1].money;
+						if (coin < 0) printf("잔액이 부족합니다.\n");
+						else printf("%s, 거스름돈: %d\n", list[i - 1].name, coin);
 					};
 				}
 			}
@@ -65,7 +66,7 @@ int loopPractice2_1() {
 		else printf("음료를 다시 선택하세요.\n");
 
 		if (coin <= 0) {
-			printf("\n실행 종료을 종료합니다.");
+			printf("실행 종료을 종료합니다.");
 			break;
 		}
 	}
