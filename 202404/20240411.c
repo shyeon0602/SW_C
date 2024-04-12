@@ -210,8 +210,6 @@ int arrayPractice1() {
 	
 }
 
-
-
 int main() {
 	//loopPractice2_1();
 	
