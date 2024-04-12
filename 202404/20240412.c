@@ -115,7 +115,7 @@ void pointerPractice1() {
 	3. ptArr를 통하여 arr의 값들을 출력하는 방법이 2가지가 있다. 2가지의 방법을 찾으시오
 	*/
 	int arr[5];
-	int* ptArr = &arr;
+	int* ptArr = arr;		// 배열의 시작주소를 반환
 
 	printf("5개의 숫자 입력: ");
 	for (int i = 0; i < 5; i++)
