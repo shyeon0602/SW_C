@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdbool.h>
+#include <stdlib.h>		// 동적메모리 할당을 위한 헤더파일
 
 int BackjoonPractice1() {
 	/*
@@ -13,30 +14,37 @@ int BackjoonPractice1() {
 	출력
 	첫째 줄에 주어진 정수 N개의 최솟값과 최댓값을 공백으로 구분해 출력한다.
 	*/
-	//int n, temp;
-	//int max = -10000000, min = 10000000;
+	int n, temp;
+	int max = -10000000, min = 10000000;
 
-	//scanf("%d", &n);
-	//int arr[n];		// backjoon 컴파일러 내에서는 배열 크기 변수 할당 가능
-	//for (int i = 0; i < n; i++)
-	//{
-	//	scanf("%d", &arr[i]);
-	//	if (arr[i] > max) max = arr[i];
-	//	if (arr[i] < min) min = arr[i];
-	//}
-	//int arr[]={ 0 };
-	//for (int j = 0; j < n-1; j++)
-	//{
-	//	if (arr[j] > arr[j + 1]) {
-	//		temp = arr[j];
-	//		arr[j] = arr[j + 1];
-	//		arr[j + 1] = temp;
-	//	}
-	//	min = arr[0];
-	//	max = arr[n-1];
-	//}
-	//printf("%d %d",min, max);
+	scanf("%d", &n);
+	/*int arr[n];*/		// backjoon 컴파일러 내에서는 배열 크기 변수 할당 가능
+	long long* arr = (long long*)malloc(sizeof(long long) * n);		// 동적 메모리 할당 malloc
+	if (arr == NULL) {
+		printf("메모리 할당 실패");
+		return -1;		// 프로그램 종료
+	}
 
+	for (int i = 0; i < n; i++)
+	{
+		scanf("%lld", &arr[i]);
+	}
+	for (int k = 0; k < n-1; k++)
+	{
+		for (int j = 0; j < n-1; j++)
+		{
+			if (arr[j] > arr[j + 1]) {
+				temp = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = temp;
+			}
+			min = arr[0];
+			max = arr[n-1];
+		}
+	}
+	printf("%d %d",min, max);
+
+	free(arr);		// 동적으로 할당한 메모리 해제
 }
 
 int BackjoonPractice2() {
@@ -90,6 +98,26 @@ int BackjoonPractice3() {
 
 }
 
+int BackjoonPractice4() {
+	/*
+	#10951 A + B - 4
+	두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오.
+
+	입력
+	입력은 여러 개의 테스트 케이스로 이루어져 있다.
+
+	각 테스트 케이스는 한 줄로 이루어져 있으며, 각 줄에 A와 B가 주어진다. (0 < A, B < 10)
+
+	출력
+	각 테스트 케이스마다 A+B를 출력한다.
+	*/
+	int a, b;
+	while (scanf("%d %d", &a, &b) != EOF) {
+		printf("%d\n", a + b);
+	}
+	return 0;
+}
+
 void Pointer() {
 	// 포인터
 	// 포인터 변수 안에는 "가리키고자 하는 것의 주소"를 값으로 받음
@@ -136,7 +164,8 @@ int main() {
 	//BackjoonPractice1();
 	//BackjoonPractice2();
 	//BackjoonPractice3();
+	//BackjoonPractice4();
 
 	//Pointer();
-	pointerPractice1();
+	//pointerPractice1();
 }
