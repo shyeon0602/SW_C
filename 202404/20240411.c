@@ -219,5 +219,5 @@ int main() {
 	//Continue();
 	
 	//Array();
-	arrayPractice1();
+	//arrayPractice1();
 }
