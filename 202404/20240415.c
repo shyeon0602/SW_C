@@ -73,11 +73,54 @@ void arrayPractice() {
 		{
 			multiplicationTables[i][j] = i * j;
 			if ((j == 1 && i != 1) || (j == 1 && i == 1)) continue;
-			printf("%d x %d = %d ", j, i, multiplicationTables[i][j]);
+			printf("%d x %d = %d	", j, i, multiplicationTables[i][j]);
 		}
 		printf("\n");
 	}
+}
 
+int practice() {
+	int num;
+	int a = 0;
+	int total = 0;
+
+	printf("몇 번 반복할지 숫자를 입력: ");
+	scanf("%d", &num);
+	int saveNum = num;
+
+	while (num > 0)
+	{
+		printf("정수 입력: ");
+		scanf(" %d", &a);
+
+		total += a;
+		num--;
+		printf("num: %d\n", num);
+	}
+	printf("num: %d\n", num);
+	printf("saveNum: %d\n", saveNum);
+	printf("정수 평균값은 %.1f입니다.", (float)total / saveNum);
+}
+
+void pointer() {
+	// 포인터: 가리키는 것
+	int n = 10;
+	int* num = &n;
+	// *num 변수를 통해서 n의 주소값과 실질적인 값을 호출할 수 있음
+	printf("n의 주소값: %d\n", num);
+	printf("n의 값: %d\n", *num);
+
+	// 문자열을 가리키는 포인터 변수 사용
+	char name[] = "kimseohyun";
+	puts(name);
+
+	char* ptName = name;
+	printf("%s\n", ptName);
+
+	for (int i = 0; i < sizeof(name); i++)
+	{
+		printf("%c", *(ptName+i));
+	}
 }
 
 int main() {
@@ -88,5 +131,9 @@ int main() {
 	//getch();
 
 	//array();
-	arrayPractice();
+	//arrayPractice();
+
+	//practice();
+
+	pointer();
 }
