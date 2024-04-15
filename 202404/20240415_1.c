@@ -5,7 +5,7 @@ int num1, num2, result;
 char operator;
 
 int Error() {
-	printf("Error "); 
+	printf("Error"); 
 	return -1;
 }
 int sum(int num1, int num2) {
@@ -44,9 +44,11 @@ int calculator() {
 		printf("%d", multiply(num1, num2));
 		break;
 	case '/':
+		if (divided(num1, num2) == -1) return 0;
 		printf("%d", divided(num1, num2));
 		break;
 	case '%':
+		if (remainder(num1, num2) == -1) return 0;
 		printf("%d", remainder(num1, num2));
 		break;
 	default:
