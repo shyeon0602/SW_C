@@ -123,6 +123,47 @@ void pointer() {
 	}
 }
 
+void function() {
+	// void: 아무것도 없다
+	// 함수의 반환형이 void인 경우, return값이 없기 때문에 return 구문 작성x
+
+	// main함수에서 return 0;은 생략되어있음, return 0;은 프로그램을 정상적으로 종료라는 의미 포함
+
+	// 매개변수: 함수를 실행하기 전에 미리 전달받는 값
+}
+
+int getIntroduce() {
+	char name[10];
+	int age;
+	char blood;
+
+	gets(name);
+	rewind(stdin);
+	scanf("%d", &age);
+	scanf(" %c", &blood);
+}
+
+void printIntroduce() {
+	struct Introduce
+	{
+		char name[10];
+		int age;
+		char blood;
+	};
+	
+}
+
+void introduce() {
+	// 예제: 자기소개 출력, 이름/나이/혈액형
+	//char name[10] = { 0 };
+	//int age = 0;
+	//char blood = 0;
+
+
+}
+
+
+
 int main() {
 	//rewinder();
 	//constNum();
@@ -135,5 +176,10 @@ int main() {
 
 	//practice();
 
-	pointer();
+	//pointer();
+
+	//function();
+
+	//introduce();
+
 }
