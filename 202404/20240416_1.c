@@ -73,7 +73,7 @@ int printMultiply(int num1, int num2) {
 }
 
 int main() {
-	sum();
+	/*sum();
 	printf("\n");
 	printf("\n");
 
@@ -83,5 +83,7 @@ int main() {
 
 	getNum();
 	printMultiply(a, b);
-	printf("\n");
+	printf("\n");*/
+
+
 }
