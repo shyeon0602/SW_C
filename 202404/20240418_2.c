@@ -7,8 +7,6 @@
 
 int result = 1;
 int factorial(int num) {
-	//num *= (num - 1);
-	//printf("%d", num);
 	/*
 	참고!
 	팩토리얼 규칙 중 0! 과 1!은 1로 정의되어있음
@@ -20,7 +18,14 @@ int factorial(int num) {
 int realFactorial(int num) {
 	for (int j = 1; j <= num; j++)
 		result *= j;
-	printf("반복문 사용: %d", result);
+	printf("증가 반복문 사용: %d", result);
+}
+
+int realFactorial2(int num) {
+	result = 1;
+	for (int k = num; k > 0; k--)
+		result *= k;
+	printf("감소 반복문 사용: %d", result);
 }
 
 int main() {
@@ -33,4 +38,8 @@ int main() {
 	printf("\n");
 
 	realFactorial(i);
+
+	printf("\n");
+	
+	realFactorial2(i);
 }
